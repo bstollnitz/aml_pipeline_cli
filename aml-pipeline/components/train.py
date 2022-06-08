@@ -17,22 +17,9 @@ from torchvision.transforms import ToTensor
 
 from neural_network import NeuralNetwork
 from utils_train_nn import evaluate, fit
+from common import MODEL_DIR
 
-DATA_DIR = "aml-pipeline/data"
-MODEL_DIR = "aml-pipeline/trained-model-output/"
-
-LABELS_MAP = {
-    0: "T-Shirt",
-    1: "Trouser",
-    2: "Pullover",
-    3: "Dress",
-    4: "Coat",
-    5: "Sandal",
-    6: "Shirt",
-    7: "Sneaker",
-    8: "Bag",
-    9: "Ankle Boot",
-}
+DATA_DIR = "aml-pipeline/data-train"
 
 
 def load_train_val_data(

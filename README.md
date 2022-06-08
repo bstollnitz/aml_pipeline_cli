@@ -49,8 +49,8 @@ mlflow ui
 * Make a local prediction using the trained mlflow model. You can use either csv or json files:
 
 ```
-mlflow models predict --model-uri "aml-pipeline/trained_model_output" --input-path "aml-pipeline/test-data/images.csv" --content-type csv
-mlflow models predict --model-uri "aml-pipeline/trained_model_output" --input-path "aml-pipeline/test-data/images.json" --content-type json
+mlflow models predict --model-uri "aml-pipeline/model" --input-path "aml-pipeline/test-data/images.csv" --content-type csv
+mlflow models predict --model-uri "aml-pipeline/model" --input-path "aml-pipeline/test-data/images.json" --content-type json
 ```
 
 
@@ -66,7 +66,7 @@ Create the compute cluster.
 az ml compute create -f cloud/cluster-gpu.yml 
 ```
 
-Create the dataset.
+Create the dataset we'll use to train the model.
 
 ```
 az ml data create -f cloud/data.yml 
@@ -76,6 +76,7 @@ Create the components.
 
 ```
 az ml component create -f components/train.yml
+az ml component create -f components/test.yml
 ```
 
 Create the pipeline.

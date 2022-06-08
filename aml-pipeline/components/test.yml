@@ -1,0 +1,17 @@
+$schema: https://azuremlschemas.azureedge.net/latest/commandComponent.schema.json
+name: component_test
+version: 1
+type: command
+
+inputs:
+  model_dir:
+    type: mlflow_model
+
+environment:
+  image: mcr.microsoft.com/azureml/openmpi3.1.2-cuda10.2-cudnn8-ubuntu18.04:latest
+  conda_file: ../cloud/conda.yml
+
+code: .
+command: >-
+  python test.py --model_dir ${{inputs.model_dir}}
+

@@ -128,7 +128,8 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-data/
-trained-model-output/
+data-train/
+data-test/
+model/
 named-outputs/
 mlruns/

@@ -18,3 +18,20 @@ jobs:
     outputs:
       model_dir:
         type: mlflow_model
+
+  test:
+    type: command
+    component: azureml:component_test@latest
+    inputs:
+      model_dir: ${{parent.jobs.train.outputs.model_dir}}
+      data_dir: ???
+
+  # test_mlflow:
+  #   type: command
+  #   component: azureml:component_test_mlflow@latest
+  #   inputs:
+  #     model_dir: ${{parent.jobs.train.outputs.model_dir}}
+  #     # Question: do I need to register the test data with Azure ML?
+  #     test_data:
+  #       path: azureml:data-fashion-mnist-test@latest
+  #       type: uri_file

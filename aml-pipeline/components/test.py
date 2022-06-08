@@ -10,10 +10,8 @@ from torch.utils.data import DataLoader
 from torchvision import datasets
 from torchvision.transforms import ToTensor
 
-from common import MODEL_DIR
+from common import DATA_DIR, MODEL_DIR
 from utils_train_nn import evaluate
-
-DATA_DIR = "aml-pipeline/data-test"
 
 
 def load_test_data(data_dir: str, batch_size: int) -> DataLoader:

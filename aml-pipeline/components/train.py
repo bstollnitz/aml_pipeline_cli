@@ -17,9 +17,7 @@ from torchvision.transforms import ToTensor
 
 from neural_network import NeuralNetwork
 from utils_train_nn import evaluate, fit
-from common import MODEL_DIR
-
-DATA_DIR = "aml-pipeline/data-train"
+from common import DATA_DIR, MODEL_DIR
 
 
 def load_train_val_data(

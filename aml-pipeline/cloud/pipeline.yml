@@ -23,8 +23,8 @@ jobs:
     type: command
     component: azureml:component_test@latest
     inputs:
+      data_dir: ${{parent.inputs.data_dir}}
       model_dir: ${{parent.jobs.train.outputs.model_dir}}
-      data_dir: ???
 
   # test_mlflow:
   #   type: command

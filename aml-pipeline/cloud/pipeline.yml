@@ -1,0 +1,20 @@
+$schema: https://azuremlschemas.azureedge.net/latest/pipelineJob.schema.json
+type: pipeline
+experiment_name: aml-pipeline
+
+compute: azureml:cluster-gpu
+
+inputs:
+  data_dir:
+    path: azureml:data-fashion-mnist@latest
+    type: uri_folder
+
+jobs:
+  train:
+    type: command
+    component: azureml:component_train@latest
+    inputs:
+      data_dir: ${{parent.inputs.data_dir}}
+    outputs:
+      model_dir:
+        type: mlflow_model

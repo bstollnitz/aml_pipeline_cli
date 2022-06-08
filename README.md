@@ -72,6 +72,18 @@ Create the dataset.
 az ml data create -f cloud/data.yml 
 ```
 
+Create the components.
+
+```
+az ml component create -f components/train.yml
+```
+
+Create the pipeline.
+
+```
+az ml job create -f cloud/pipeline.yml
+```
+
 Run the training job. Go to the Azure ML Studio and wait until the Experiment completes.
 
 ```

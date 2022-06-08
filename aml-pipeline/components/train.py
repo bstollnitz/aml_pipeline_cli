@@ -19,7 +19,7 @@ from neural_network import NeuralNetwork
 from utils_train_nn import evaluate, fit
 
 DATA_DIR = "aml-pipeline/data"
-MODEL_DIR = "aml-pipeline/trained_model_output/"
+MODEL_DIR = "aml-pipeline/trained-model-output/"
 
 LABELS_MAP = {
     0: "T-Shirt",

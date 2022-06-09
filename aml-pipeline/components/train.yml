@@ -1,6 +1,6 @@
 $schema: https://azuremlschemas.azureedge.net/latest/commandComponent.schema.json
 name: component_train
-version: 5
+version: 6
 type: command
 
 inputs:

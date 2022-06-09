@@ -9,6 +9,10 @@ inputs:
     path: azureml:data-fashion-mnist@latest
     type: uri_folder
 
+outputs:
+  model:
+    type: mlflow_model
+
 jobs:
   train:
     type: command
@@ -16,8 +20,7 @@ jobs:
     inputs:
       data_dir: ${{parent.inputs.data_dir}}
     outputs:
-      model_dir:
-        type: mlflow_model
+      model_dir: ${{parent.outputs.model}}
 
   test:
     type: command
@@ -25,13 +28,3 @@ jobs:
     inputs:
       data_dir: ${{parent.inputs.data_dir}}
       model_dir: ${{parent.jobs.train.outputs.model_dir}}
-
-  # test_mlflow:
-  #   type: command
-  #   component: azureml:component_test_mlflow@latest
-  #   inputs:
-  #     model_dir: ${{parent.jobs.train.outputs.model_dir}}
-  #     # Question: do I need to register the test data with Azure ML?
-  #     test_data:
-  #       path: azureml:data-fashion-mnist-test@latest
-  #       type: uri_file

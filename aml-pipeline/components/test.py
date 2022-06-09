@@ -41,6 +41,8 @@ def test(data_dir: str, model_dir: str, device: str) -> None:
 
     mlflow.log_param("test_loss", test_loss)
     mlflow.log_param("test_accuracy", test_accuracy)
+    logging.info("Test loss: %f", test_loss)
+    logging.info("Test accuracy: %f", test_accuracy)
 
 
 def main():

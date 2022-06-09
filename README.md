@@ -40,6 +40,7 @@ conda activate aml-pipeline
 ## Train and predict locally
 
 * Run train.py by pressing F5.
+* Run test.py the same way.
 * Analyze the metrics logged in the "mlruns" directory with the following command:
 
 ```
@@ -79,28 +80,23 @@ az ml component create -f components/train.yml
 az ml component create -f components/test.yml
 ```
 
-Create the pipeline.
+Create and run the pipeline.
 
 ```
-az ml job create -f cloud/pipeline.yml
+run_id=$(az ml job create -f cloud/pipeline.yml --query name -o tsv)
 ```
 
-Run the training job. Go to the Azure ML Studio and wait until the Experiment completes.
-
-```
-run_id=$(az ml job create -f cloud/job.yml --query name -o tsv)
-```
-
+Go to the Azure ML Studio and wait until the Job completes.
 You don't need to download the trained model, but here's how you would do it if you wanted to:
 
 ```
-az ml job download --name $run_id --output-name "trained_model_output"
+az ml job download --name $run_id --output-name "model"
 ```
 
 Create the Azure ML model from the output.
 
 ```
-az ml model create --name model-pipeline --version 1 --path "azureml://jobs/$run_id/outputs/trained_model_output" --type mlflow_model
+az ml model create --name model-pipeline --version 1 --path "azureml://jobs/$run_id/outputs/model" --type mlflow_model
 ```
 
 Create the endpoint.

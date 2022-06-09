@@ -41,7 +41,7 @@ conda activate aml-pipeline
 
 * Run train.py by pressing F5.
 * Run test.py the same way.
-* Analyze the metrics logged in the "mlruns" directory with the following command:
+* You can analyze the metrics logged in the "mlruns" directory with the following command:
 
 ```
 mlflow ui

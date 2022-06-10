@@ -1,6 +1,6 @@
-# How to train and deploy in Azure ML
+# How to train a model in Azure ML using components and a pipeline
 
-This project shows how to train a Fashion MNIST model with an Azure ML pipeline, and how to deploy it using an online managed endpoint. It uses MLflow for tracking and model representation.
+This project shows how to train a Fashion MNIST model using a Azure ML components and a pipeline, and how to deploy it using a managed online endpoint. It uses MLflow for tracking and model representation.
 
 ## Azure setup
 
@@ -39,6 +39,10 @@ conda activate aml-pipeline
 
 ## Train and predict locally
 
+```
+cd aml-pipeline
+```
+
 * Run train.py by pressing F5.
 * Run test.py the same way.
 * You can analyze the metrics logged in the "mlruns" directory with the following command:
@@ -50,16 +54,12 @@ mlflow ui
 * Make a local prediction using the trained mlflow model. You can use either csv or json files:
 
 ```
-mlflow models predict --model-uri "aml-pipeline/model" --input-path "aml-pipeline/test-data/images.csv" --content-type csv
-mlflow models predict --model-uri "aml-pipeline/model" --input-path "aml-pipeline/test-data/images.json" --content-type json
+mlflow models predict --model-uri "model" --input-path "test-data/images.csv" --content-type csv
+mlflow models predict --model-uri "model" --input-path "test-data/images.json" --content-type json
 ```
 
 
 ## Train and deploy in the cloud
-
-```
-cd aml-pipeline
-```
 
 Create the compute cluster.
 

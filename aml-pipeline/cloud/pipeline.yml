@@ -10,7 +10,7 @@ inputs:
     type: uri_folder
 
 outputs:
-  model:
+  model_dir:
     type: mlflow_model
 
 jobs:
@@ -20,7 +20,7 @@ jobs:
     inputs:
       data_dir: ${{parent.inputs.data_dir}}
     outputs:
-      model_dir: ${{parent.outputs.model}}
+      model_dir: ${{parent.outputs.model_dir}}
 
   test:
     type: command

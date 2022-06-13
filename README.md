@@ -33,14 +33,14 @@ conda env create -f environment.yml
 Activate conda environment:
 
 ```
-conda activate aml-pipeline
+conda activate aml-pipeline-cli
 ```
 
 
 ## Train and predict locally
 
 ```
-cd aml-pipeline
+cd aml-pipeline-cli
 ```
 
 * Run train.py by pressing F5.
@@ -76,8 +76,8 @@ az ml data create -f cloud/data.yml
 Create the components.
 
 ```
-az ml component create -f components/train.yml
-az ml component create -f components/test.yml
+az ml component create -f cloud/train.yml
+az ml component create -f cloud/test.yml
 ```
 
 Create and run the pipeline.
@@ -90,13 +90,13 @@ Go to the Azure ML Studio and wait until the Job completes.
 You don't need to download the trained model, but here's how you would do it if you wanted to:
 
 ```
-az ml job download --name $run_id --output-name "model"
+az ml job download --name $run_id --output-name "model_dir"
 ```
 
 Create the Azure ML model from the output.
 
 ```
-az ml model create --name model-pipeline --version 1 --path "azureml://jobs/$run_id/outputs/model" --type mlflow_model
+az ml model create --name model-pipeline-cli --version 1 --path "azureml://jobs/$run_id/outputs/model_dir" --type mlflow_model
 ```
 
 Create the endpoint.
@@ -109,5 +109,5 @@ az ml online-deployment create -f cloud/deployment.yml --all-traffic
 Invoke the endpoint.
 
 ```
-az ml online-endpoint invoke --name endpoint-pipeline --request-file test-data/images_azureml.json
+az ml online-endpoint invoke --name endpoint-pipeline-cli --request-file test-data/images_azureml.json
 ```

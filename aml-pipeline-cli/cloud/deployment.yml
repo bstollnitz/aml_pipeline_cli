@@ -1,6 +1,6 @@
 $schema: https://azuremlschemas.azureedge.net/latest/managedOnlineDeployment.schema.json
 name: blue
-endpoint_name: endpoint-pipeline
-model: azureml:model-pipeline@latest
+endpoint_name: endpoint-pipeline-cli
+model: azureml:model-pipeline-cli@latest
 instance_type: Standard_NC6s_v3
 instance_count: 1

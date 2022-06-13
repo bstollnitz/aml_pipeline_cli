@@ -1,4 +1,4 @@
-name: aml-pipeline
+name: aml-pipeline-cli
 channels:
   - anaconda
   - pytorch

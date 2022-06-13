@@ -1,6 +1,6 @@
 $schema: https://azuremlschemas.azureedge.net/latest/pipelineJob.schema.json
 type: pipeline
-experiment_name: aml-pipeline
+experiment_name: aml-pipeline-cli
 
 compute: azureml:cluster-gpu
 
@@ -16,7 +16,7 @@ outputs:
 jobs:
   train:
     type: command
-    component: azureml:component_train@latest
+    component: azureml:component_pipeline_cli_train@latest
     inputs:
       data_dir: ${{parent.inputs.data_dir}}
     outputs:
@@ -24,7 +24,7 @@ jobs:
 
   test:
     type: command
-    component: azureml:component_test@latest
+    component: azureml:component_pipeline_cli_test@latest
     inputs:
       data_dir: ${{parent.inputs.data_dir}}
       model_dir: ${{parent.jobs.train.outputs.model_dir}}

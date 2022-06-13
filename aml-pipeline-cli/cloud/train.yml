@@ -1,19 +1,21 @@
 $schema: https://azuremlschemas.azureedge.net/latest/commandComponent.schema.json
-name: component_test
-version: 3
+name: component_pipeline_cli_train
+version: 6
 type: command
 
 inputs:
   data_dir:
     type: uri_folder
+
+outputs:
   model_dir:
     type: mlflow_model
 
 environment:
   image: mcr.microsoft.com/azureml/openmpi3.1.2-cuda10.2-cudnn8-ubuntu18.04:latest
-  conda_file: ../cloud/conda.yml
+  conda_file: conda.yml
 
-code: .
+code: ../src
 command: >-
-  python test.py --model_dir ${{inputs.model_dir}}
+  python train.py --data_dir ${{inputs.data_dir}} --model_dir ${{outputs.model_dir}}
 

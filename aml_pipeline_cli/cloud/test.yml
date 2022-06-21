@@ -1,6 +1,6 @@
 $schema: https://azuremlschemas.azureedge.net/latest/commandComponent.schema.json
 name: component_pipeline_cli_test
-version: 3
+version: 4
 type: command
 
 inputs:
@@ -10,7 +10,7 @@ inputs:
     type: mlflow_model
 
 environment:
-  image: mcr.microsoft.com/azureml/openmpi3.1.2-cuda10.2-cudnn8-ubuntu18.04:latest
+  image: mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu20.04:latest
   conda_file: conda.yml
 
 code: ../src

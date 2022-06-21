@@ -33,14 +33,14 @@ conda env create -f environment.yml
 Activate conda environment:
 
 ```
-conda activate aml-pipeline-cli
+conda activate aml_pipeline_cli
 ```
 
 
 ## Train and predict locally
 
 ```
-cd aml-pipeline-cli
+cd aml_pipeline_cli
 ```
 
 * Run train.py by pressing F5.
@@ -54,8 +54,8 @@ mlflow ui
 * Make a local prediction using the trained mlflow model. You can use either csv or json files:
 
 ```
-mlflow models predict --model-uri "model" --input-path "test-data/images.csv" --content-type csv
-mlflow models predict --model-uri "model" --input-path "test-data/images.json" --content-type json
+mlflow models predict --model-uri "model" --input-path "test_data/images.csv" --content-type csv
+mlflow models predict --model-uri "model" --input-path "test_data/images.json" --content-type json
 ```
 
 
@@ -64,7 +64,7 @@ mlflow models predict --model-uri "model" --input-path "test-data/images.json" -
 Create the compute cluster.
 
 ```
-az ml compute create -f cloud/cluster-gpu.yml 
+az ml compute create -f cloud/cluster-cpu.yml 
 ```
 
 Create the dataset we'll use to train the model.
@@ -83,7 +83,7 @@ az ml component create -f cloud/test.yml
 Create and run the pipeline.
 
 ```
-run_id=$(az ml job create -f cloud/pipeline.yml --query name -o tsv)
+run_id=$(az ml job create -f cloud/pipeline-job.yml --query name -o tsv)
 ```
 
 Go to the Azure ML Studio and wait until the Job completes.
@@ -109,5 +109,5 @@ az ml online-deployment create -f cloud/deployment.yml --all-traffic
 Invoke the endpoint.
 
 ```
-az ml online-endpoint invoke --name endpoint-pipeline-cli --request-file test-data/images_azureml.json
+az ml online-endpoint invoke --name endpoint-pipeline-cli --request-file test_data/images_azureml.json
 ```

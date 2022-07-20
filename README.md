@@ -37,7 +37,7 @@ conda activate aml_pipeline_cli
 ```
 
 
-## Train and predict locally
+## Training and inference on your development machine
 
 ```
 cd aml_pipeline_cli
@@ -45,21 +45,9 @@ cd aml_pipeline_cli
 
 * Run train.py by pressing F5.
 * Run test.py the same way.
-* You can analyze the metrics logged in the "mlruns" directory with the following command:
-
-```
-mlflow ui
-```
-
-* Make a local prediction using the trained mlflow model. You can use either csv or json files:
-
-```
-mlflow models predict --model-uri "model" --input-path "test_data/images.csv" --content-type csv
-mlflow models predict --model-uri "model" --input-path "test_data/images.json" --content-type json
-```
 
 
-## Train and deploy in the cloud
+## Training and deployment in the cloud
 
 Create the compute cluster.
 

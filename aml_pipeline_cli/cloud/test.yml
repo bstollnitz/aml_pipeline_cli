@@ -15,5 +15,5 @@ environment:
 
 code: ../src
 command: >-
-  python test.py --model_dir ${{inputs.model_dir}}
+  python test.py --model_dir ${{inputs.model_dir}} --data_dir ${{inputs.data_dir}}
 

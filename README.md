@@ -39,10 +39,6 @@ conda activate aml_pipeline_cli
 
 ## Training and inference on your development machine
 
-```
-cd aml_pipeline_cli
-```
-
 * Run train.py by pressing F5.
 * Run test.py the same way.
 
@@ -54,6 +50,10 @@ mlflow ui
 
 
 ## Training and deployment in the cloud
+
+```
+cd aml_pipeline_cli
+```
 
 Create the compute cluster.
 

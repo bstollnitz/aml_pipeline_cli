@@ -1,6 +1,6 @@
 $schema: https://azuremlschemas.azureedge.net/latest/pipelineJob.schema.json
 type: pipeline
-experiment_name: aml-pipeline-cli
+experiment_name: aml_pipeline_cli
 
 compute: azureml:cluster-cpu
 

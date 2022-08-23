@@ -2,6 +2,7 @@
 
 This project shows how to train a Fashion MNIST model using a Azure ML components and a pipeline, and how to deploy it using a managed online endpoint. It uses MLflow for tracking and model representation.
 
+
 ## Blog post
 
 To learn more about the code in this repo, check out the accompanying blog post: https://bea.stollnitz.com/blog/aml-pipeline/

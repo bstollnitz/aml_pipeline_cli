@@ -14,7 +14,7 @@ from common import DATA_DIR, MODEL_DIR
 from utils_train_nn import evaluate
 
 
-def load_test_data(data_dir: str, batch_size: int) -> DataLoader:
+def load_test_data(data_dir: str, batch_size: int) -> DataLoader[torch.Tensor]:
     """
     Returns a DataLoader object that wraps test data.
     """
@@ -45,7 +45,7 @@ def test(data_dir: str, model_dir: str, device: str) -> None:
     logging.info("Test accuracy: %f", test_accuracy)
 
 
-def main():
+def main() -> None:
     logging.basicConfig(level=logging.INFO)
 
     parser = argparse.ArgumentParser()

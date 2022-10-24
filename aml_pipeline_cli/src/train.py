@@ -15,9 +15,9 @@ from torch.utils.data import DataLoader, random_split
 from torchvision import datasets
 from torchvision.transforms import ToTensor
 
-from common import DATA_DIR, MODEL_DIR
-from neural_network import NeuralNetwork
-from utils_train_nn import evaluate, fit
+from .common import DATA_DIR, MODEL_DIR
+from .neural_network import NeuralNetwork
+from .utils_train_nn import evaluate, fit
 
 
 def load_train_val_data(

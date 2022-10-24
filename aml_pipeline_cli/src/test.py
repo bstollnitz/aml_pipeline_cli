@@ -10,8 +10,8 @@ from torch.utils.data import DataLoader
 from torchvision import datasets
 from torchvision.transforms import ToTensor
 
-from common import DATA_DIR, MODEL_DIR
-from utils_train_nn import evaluate
+from .common import DATA_DIR, MODEL_DIR
+from .utils_train_nn import evaluate
 
 
 def load_test_data(data_dir: str, batch_size: int) -> DataLoader[torch.Tensor]:

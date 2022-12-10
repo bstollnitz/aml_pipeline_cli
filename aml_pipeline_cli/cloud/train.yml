@@ -1,6 +1,6 @@
 $schema: https://azuremlschemas.azureedge.net/latest/commandComponent.schema.json
 name: component_pipeline_cli_train
-version: 1
+version: 3
 type: command
 
 inputs:

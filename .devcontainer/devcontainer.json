@@ -1,22 +1,16 @@
-// For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
-// https://github.com/microsoft/vscode-dev-containers/tree/v0.209.6/containers/python-3-miniconda
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/miniconda
 {
     "name": "Miniconda (Python 3)",
     "build": {
         "context": "..",
         "dockerfile": "Dockerfile"
     },
-    "settings": {
-        "python.defaultInterpreterPath": "/opt/conda/bin/python"
-    },
-    "extensions": [
-        "ms-python.python",
-        "ms-python.vscode-pylance",
-        "ms-toolsai.vscode-ai"
-    ],
     "features": {
-        "azure-cli": "latest"
+        "ghcr.io/devcontainers/features/azure-cli:1": {}
     },
-    "remoteUser": "vscode",
-    "onCreateCommand": "az extension add -n ml -y"
+    "postCreateCommand": "az extension add -n ml -y",
+    "hostRequirements": {
+        "memory": "16gb"
+    }
 }
